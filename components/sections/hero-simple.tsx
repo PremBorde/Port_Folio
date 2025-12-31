@@ -95,15 +95,18 @@ export function HeroSimple() {
     return (
         <section id="home" className="relative min-h-screen w-full overflow-hidden bg-background flex items-center">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-purple-500/[0.03] blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-purple-500/[0.05] dark:from-blue-500/[0.03] dark:to-purple-500/[0.03] blur-3xl" />
             
+            {/* Subtle Grid Pattern for Light Mode */}
+            <div className="absolute inset-0 dark:hidden opacity-[0.03] [background-image:radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]" />
+
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <ElegantShape
                     delay={0.3}
                     width={600}
                     height={140}
                     rotate={12}
-                    gradient="from-blue-500/[0.12]"
+                    gradient="from-blue-500/[0.15] dark:from-blue-500/[0.12]"
                     className="right-[-10%] top-[10%]"
                 />
                 <ElegantShape
@@ -111,7 +114,7 @@ export function HeroSimple() {
                     width={500}
                     height={120}
                     rotate={-15}
-                    gradient="from-purple-500/[0.12]"
+                    gradient="from-purple-500/[0.15] dark:from-purple-500/[0.12]"
                     className="right-[5%] top-[60%]"
                 />
                 <ElegantShape
@@ -119,7 +122,7 @@ export function HeroSimple() {
                     width={300}
                     height={80}
                     rotate={-8}
-                    gradient="from-indigo-500/[0.12]"
+                    gradient="from-indigo-500/[0.15] dark:from-indigo-500/[0.12]"
                     className="right-[20%] top-[30%]"
                 />
             </div>
@@ -135,9 +138,9 @@ export function HeroSimple() {
                             animate="visible"
                             className="mb-8"
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted border border-border mb-8">
-                                <Sparkles className="h-3 w-3 text-blue-400" />
-                                <span className="text-sm text-muted-foreground tracking-wide uppercase font-medium">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/[0.05] dark:bg-muted border border-blue-500/10 dark:border-border mb-8">
+                                <Sparkles className="h-3 w-3 text-blue-500 dark:text-blue-400" />
+                                <span className="text-sm text-blue-600/80 dark:text-muted-foreground tracking-wide uppercase font-medium">
                                     Applied AI & LLM Systems
                                 </span>
                             </div>
@@ -150,11 +153,11 @@ export function HeroSimple() {
                             animate="visible"
                         >
                             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-8 tracking-tight leading-[1.1]">
-                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70 dark:from-white dark:to-white/60">
                                     Prem Borde
                                 </span>
                                 <br />
-                                <span className="text-3xl sm:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 font-medium">
+                                <span className="text-3xl sm:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400 font-medium">
                                     Building the Future with Code
                                 </span>
                             </h1>
@@ -167,9 +170,9 @@ export function HeroSimple() {
                             animate="visible"
                         >
                             <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed font-light tracking-wide max-w-xl">
-                                Building <span className="text-foreground font-normal">applied AI systems</span> that solve real-world problems. 
-                                Focused on <span className="text-foreground font-normal">LLM-powered applications, RAG, semantic search</span>, and 
-                                <span className="text-foreground font-normal"> AI automation</span>—with an emphasis on reliability and system design.
+                                Building <span className="text-foreground font-medium dark:font-normal">applied AI systems</span> that solve real-world problems. 
+                                Focused on <span className="text-foreground font-medium dark:font-normal">LLM-powered applications, RAG, semantic search</span>, and 
+                                <span className="text-foreground font-medium dark:font-normal"> AI automation</span>.
                             </p>
                         </motion.div>
 
@@ -183,7 +186,7 @@ export function HeroSimple() {
                             <LiquidButton 
                                 onClick={scrollToNext}
                                 size="lg"
-                                className="text-white font-semibold min-w-[160px]"
+                                className="text-white font-semibold min-w-[160px] shadow-xl shadow-blue-500/20"
                             >
                                 View Projects
                             </LiquidButton>
@@ -203,13 +206,13 @@ export function HeroSimple() {
                             animate="visible"
                             className="mt-12 flex items-center gap-6"
                         >
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                            <a href="https://github.com/PremBorde" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue-600 dark:hover:text-foreground transition-colors">
                                 <Github size={20} />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                            <a href="https://linkedin.com/in/prem-borde-115a92281" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue-600 dark:hover:text-foreground transition-colors">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                            <a href="mailto:prembordesn4@gmail.com" className="text-muted-foreground hover:text-blue-600 dark:hover:text-foreground transition-colors">
                                 <Mail size={20} />
                             </a>
                         </motion.div>
@@ -225,41 +228,41 @@ export function HeroSimple() {
                         >
                             <div className="relative w-full h-full">
                                 {/* Abstract Code Card */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] aspect-square rounded-3xl bg-gradient-to-br from-foreground/[0.05] to-transparent border border-border backdrop-blur-xl p-8 shadow-2xl">
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] aspect-square rounded-3xl bg-white/40 dark:bg-foreground/[0.05] border border-white dark:border-border backdrop-blur-xl p-8 shadow-2xl shadow-blue-500/10">
                                     <div className="flex gap-1.5 mb-6">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/50" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/50" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
                                     </div>
                                     <div className="space-y-4">
-                                        <div className="h-2 w-3/4 bg-blue-400/20 rounded" />
-                                        <div className="h-2 w-1/2 bg-purple-400/20 rounded" />
-                                        <div className="h-2 w-5/6 bg-indigo-400/20 rounded" />
-                                        <div className="h-2 w-2/3 bg-blue-400/20 rounded" />
-                                        <div className="h-2 w-3/4 bg-foreground/10 rounded" />
-                                        <div className="h-2 w-1/2 bg-foreground/10 rounded" />
+                                        <div className="h-2 w-3/4 bg-blue-500/10 dark:bg-blue-400/20 rounded" />
+                                        <div className="h-2 w-1/2 bg-purple-500/10 dark:bg-purple-400/20 rounded" />
+                                        <div className="h-2 w-5/6 bg-indigo-500/10 dark:bg-indigo-400/20 rounded" />
+                                        <div className="h-2 w-2/3 bg-blue-500/10 dark:bg-blue-400/20 rounded" />
+                                        <div className="h-2 w-3/4 bg-foreground/5 dark:bg-foreground/10 rounded" />
+                                        <div className="h-2 w-1/2 bg-foreground/5 dark:bg-foreground/10 rounded" />
                                     </div>
                                     
-                                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl" />
-                                    <div className="absolute -top-6 -left-6 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl" />
+                                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-3xl" />
+                                    <div className="absolute -top-6 -left-6 w-32 h-32 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl" />
                                 </div>
 
                                 {/* Floating Terminal Icon */}
                                 <motion.div
                                     animate={{ y: [0, -20, 0] }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute top-[20%] right-[10%] p-4 rounded-2xl bg-background/50 border border-border backdrop-blur-md shadow-lg"
+                                    className="absolute top-[20%] right-[10%] p-4 rounded-2xl bg-white/60 dark:bg-background/50 border border-white dark:border-border backdrop-blur-md shadow-xl"
                                 >
-                                    <Terminal className="text-blue-400" size={32} />
+                                    <Terminal className="text-blue-600 dark:text-blue-400" size={32} />
                                 </motion.div>
 
                                 {/* Floating Sparkle */}
                                 <motion.div
                                     animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute bottom-[20%] left-[10%] p-4 rounded-2xl bg-background/50 border border-border backdrop-blur-md shadow-lg"
+                                    className="absolute bottom-[20%] left-[10%] p-4 rounded-2xl bg-white/60 dark:bg-background/50 border border-white dark:border-border backdrop-blur-md shadow-xl"
                                 >
-                                    <Sparkles className="text-purple-400" size={32} />
+                                    <Sparkles className="text-purple-600 dark:text-purple-400" size={32} />
                                 </motion.div>
                             </div>
                         </motion.div>
@@ -277,7 +280,7 @@ export function HeroSimple() {
                     onClick={scrollToNext}
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-muted-foreground hover:text-blue-600 dark:hover:text-foreground transition-colors duration-300"
                 >
                     <ArrowDown size={20} />
                 </motion.button>

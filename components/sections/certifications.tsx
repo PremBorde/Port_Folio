@@ -136,16 +136,16 @@ export function CertificationsSection() {
               variants={fadeUpVariants}
               className="group relative"
             >
-              <div className="h-full bg-muted/30 border border-border rounded-3xl p-8 hover:bg-muted/50 hover:border-foreground/10 transition-all duration-300">
+              <div className="h-full bg-white/50 dark:bg-white/[0.02] border border-white dark:border-white/[0.05] rounded-3xl p-8 hover:bg-white/80 dark:hover:bg-white/[0.04] hover:border-blue-500/20 dark:hover:border-white/[0.1] transition-all duration-300 shadow-xl shadow-blue-500/5 hover:shadow-blue-500/10 dark:shadow-none">
                 <div className="flex items-start justify-between mb-8">
                   <div className={cn(
-                    "p-4 rounded-2xl bg-gradient-to-br transition-transform group-hover:scale-110 duration-300",
+                    "p-4 rounded-2xl bg-gradient-to-br transition-transform group-hover:scale-110 duration-300 shadow-lg",
                     cert.color
                   )}>
-                    <Award className="w-6 h-6 text-white" />
+                    <Award className="w-6 h-6 text-white shadow-sm" />
                   </div>
                   {cert.featured && (
-                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-wider">
                       <Sparkles className="w-3 h-3" />
                       Featured
                     </div>
@@ -154,22 +154,22 @@ export function CertificationsSection() {
                 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl font-medium text-foreground mb-1 tracking-tight group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-bold dark:font-medium text-foreground mb-1 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {cert.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground font-medium">
+                    <p className="text-sm text-blue-600/60 dark:text-white/40 font-bold dark:font-medium">
                       {cert.issuer} • {cert.year}
                     </p>
                   </div>
                   
-                  <p className="text-sm text-muted-foreground/70 font-light leading-relaxed">
+                  <p className="text-sm text-muted-foreground/80 dark:text-white/40 font-normal dark:font-light leading-relaxed">
                     {cert.description}
                   </p>
                   
-                  <div className="pt-4 flex items-center justify-between">
+                  <div className="pt-4 flex items-center justify-between border-t border-border/50 dark:border-none">
                     <a 
                       href="#"
-                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/40 hover:text-foreground transition-all group/link"
+                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/40 hover:text-blue-600 dark:hover:text-white transition-all group/link"
                     >
                       Verify
                       <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />

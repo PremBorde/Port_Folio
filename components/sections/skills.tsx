@@ -123,15 +123,15 @@ export function SkillsSection() {
               variants={fadeUpVariants}
               className="group relative"
             >
-              <div className="h-full bg-muted/30 border border-border rounded-3xl p-8 hover:bg-muted/50 hover:border-foreground/10 transition-all duration-300">
+              <div className="h-full bg-white/50 dark:bg-muted/30 border border-white dark:border-border rounded-3xl p-8 hover:bg-white/80 dark:hover:bg-muted/50 hover:border-blue-500/20 dark:hover:border-foreground/10 transition-all duration-300 shadow-xl shadow-blue-500/5 hover:shadow-blue-500/10 dark:shadow-none">
                 <div className="flex items-center mb-6">
                   <div className={cn(
-                    "p-3 rounded-2xl bg-gradient-to-br transition-transform group-hover:scale-110 duration-300",
+                    "p-3 rounded-2xl bg-gradient-to-br transition-transform group-hover:scale-110 duration-300 shadow-lg",
                     category.color
                   )}>
-                    <category.icon className={cn("w-6 h-6", category.iconColor)} />
+                    <category.icon className={cn("w-6 h-6 shadow-sm", category.iconColor)} />
                   </div>
-                  <h3 className="text-xl font-medium text-foreground ml-4 tracking-tight">
+                  <h3 className="text-xl font-bold dark:font-medium text-foreground ml-4 tracking-tight">
                     {category.title}
                   </h3>
                 </div>
@@ -140,7 +140,7 @@ export function SkillsSection() {
                   {category.skills.map((skill, skillIndex) => (
                     <span 
                       key={skillIndex}
-                      className="px-3 py-1.5 rounded-xl bg-muted border border-border text-muted-foreground text-xs font-medium hover:text-foreground hover:bg-muted/80 transition-all cursor-default"
+                      className="px-3 py-1.5 rounded-xl bg-blue-500/5 dark:bg-muted border border-blue-500/10 dark:border-border text-blue-600 dark:text-muted-foreground text-xs font-semibold dark:font-medium hover:bg-blue-500/10 dark:hover:bg-muted/80 transition-all cursor-default shadow-sm"
                     >
                       {skill}
                     </span>
@@ -149,7 +149,7 @@ export function SkillsSection() {
               </div>
               
               {/* Decorative orb */}
-              <div className="absolute -z-10 top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/5 to-purple-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -z-10 top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
           ))}
         </div>
@@ -179,7 +179,6 @@ export function SkillsSection() {
         </motion.div>
       </div>
     </section>
-  )
   )
 }
 

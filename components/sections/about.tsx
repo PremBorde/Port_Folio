@@ -93,11 +93,11 @@ export function AboutSection() {
                   viewport={{ once: true }}
                   custom={index + 3}
                   variants={fadeUpVariants}
-                  className="p-6 rounded-2xl bg-muted/30 border border-border hover:border-foreground/10 transition-colors group"
+                  className="p-6 rounded-2xl bg-white/50 dark:bg-muted/30 border border-white dark:border-border hover:border-blue-500/20 dark:hover:border-foreground/10 transition-colors group shadow-lg shadow-blue-500/5 dark:shadow-none"
                 >
-                  <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110", stat.color)} />
+                  <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110 shadow-sm", stat.color)} />
                   <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground tracking-wide uppercase font-medium">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground tracking-wide uppercase font-bold dark:font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -112,26 +112,26 @@ export function AboutSection() {
               transition={{ duration: 1, delay: 0.5 }}
               className="relative"
             >
-              <div className="relative z-10 p-8 rounded-3xl bg-gradient-to-br from-foreground/[0.05] to-transparent border border-border backdrop-blur-xl shadow-2xl">
-                <h3 className="text-2xl font-semibold text-foreground mb-8 tracking-tight">Current Experience</h3>
+              <div className="relative z-10 p-8 rounded-3xl bg-white/40 dark:bg-foreground/[0.05] border border-white dark:border-border backdrop-blur-xl shadow-2xl shadow-blue-500/10 dark:shadow-none">
+                <h3 className="text-2xl font-bold dark:font-semibold text-foreground mb-8 tracking-tight">Current Experience</h3>
                 
                 <div className="space-y-12">
-                  <div className="relative pl-8 border-l border-border">
+                  <div className="relative pl-8 border-l border-blue-500/20 dark:border-border">
                     <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
-                    <div className="text-sm text-blue-400 font-medium mb-1">Sep 2025 – Oct 2025</div>
-                    <h4 className="text-lg font-medium text-foreground mb-1 tracking-tight">AI & Cloud Intern</h4>
-                    <p className="text-muted-foreground/80 mb-4 font-light italic text-sm">Edunet Foundation (AICTE & IBM)</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                    <div className="text-sm text-blue-600 dark:text-blue-400 font-bold dark:font-medium mb-1">Sep 2025 – Oct 2025</div>
+                    <h4 className="text-lg font-bold dark:font-medium text-foreground mb-1 tracking-tight">AI & Cloud Intern</h4>
+                    <p className="text-blue-600/60 dark:text-muted-foreground/80 mb-4 font-medium dark:font-light italic text-sm">Edunet Foundation (AICTE & IBM)</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed font-normal dark:font-light">
                       Developed JobFlow - an AI-powered automation agent for job applications. Built production-ready AI tools using FastAPI and LLM APIs, focusing on RAG and automation workflows.
                     </p>
                   </div>
 
-                  <div className="relative pl-8 border-l border-border">
+                  <div className="relative pl-8 border-l border-purple-500/20 dark:border-border">
                     <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
-                    <div className="text-sm text-purple-400 font-medium mb-1">Education</div>
-                    <h4 className="text-lg font-medium text-foreground mb-1 tracking-tight">B.E in Computer Science</h4>
-                    <p className="text-muted-foreground/80 mb-4 font-light italic text-sm">PCET NMIET, Pune</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                    <div className="text-sm text-purple-600 dark:text-purple-400 font-bold dark:font-medium mb-1">Education</div>
+                    <h4 className="text-lg font-bold dark:font-medium text-foreground mb-1 tracking-tight">B.E in Computer Science</h4>
+                    <p className="text-purple-600/60 dark:text-muted-foreground/80 mb-4 font-medium dark:font-light italic text-sm">PCET NMIET, Pune</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed font-normal dark:font-light">
                       Specializing in AI/ML and Software Engineering. Maintaining a strong 8.3 CGPA.
                     </p>
                   </div>
@@ -149,11 +149,11 @@ export function AboutSection() {
                   viewport={{ once: true }}
                   custom={index + 5}
                   variants={fadeUpVariants}
-                  className="p-6 rounded-2xl bg-muted/30 border border-border hover:border-foreground/10 transition-colors group"
+                  className="p-6 rounded-2xl bg-white/50 dark:bg-muted/30 border border-white dark:border-border hover:border-blue-500/20 dark:hover:border-foreground/10 transition-colors group shadow-lg shadow-blue-500/5 dark:shadow-none"
                 >
-                  <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110", stat.color)} />
+                  <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110 shadow-sm", stat.color)} />
                   <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground tracking-wide uppercase font-medium">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground tracking-wide uppercase font-bold dark:font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
