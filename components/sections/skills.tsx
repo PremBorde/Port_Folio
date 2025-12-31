@@ -123,7 +123,7 @@ export function SkillsSection() {
               variants={fadeUpVariants}
               className="group relative"
             >
-              <div className="h-full bg-white/50 dark:bg-muted/30 border border-white dark:border-border rounded-3xl p-8 hover:bg-white/80 dark:hover:bg-muted/50 hover:border-blue-500/20 dark:hover:border-foreground/10 transition-all duration-300 shadow-xl shadow-blue-500/5 hover:shadow-blue-500/10 dark:shadow-none">
+              <div className="h-full bg-white/50 dark:bg-white/[0.02] border border-white dark:border-white/[0.05] rounded-3xl p-8 hover:bg-white/80 dark:hover:bg-white/[0.04] hover:border-blue-500/20 dark:hover:border-white/[0.1] transition-all duration-300 shadow-xl shadow-blue-500/5 hover:shadow-blue-500/10 dark:shadow-none">
                 <div className="flex items-center mb-6">
                   <div className={cn(
                     "p-3 rounded-2xl bg-gradient-to-br transition-transform group-hover:scale-110 duration-300 shadow-lg",

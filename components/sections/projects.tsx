@@ -168,7 +168,7 @@ export function ProjectsSection() {
               variants={fadeUpVariants}
               className="group relative h-full"
             >
-              <div className="relative h-full overflow-hidden rounded-3xl bg-white/50 dark:bg-muted/30 border border-white dark:border-border group-hover:border-blue-500/30 dark:group-hover:border-foreground/10 transition-all duration-500 shadow-xl shadow-blue-500/5 hover:shadow-blue-500/10 dark:shadow-none">
+              <div className="relative h-full overflow-hidden rounded-3xl bg-white/50 dark:bg-white/[0.02] border border-white dark:border-white/[0.05] group-hover:border-blue-500/30 dark:group-hover:border-white/[0.1] transition-all duration-500 shadow-xl shadow-blue-500/5 hover:shadow-blue-500/10 dark:shadow-none">
                 <div className="flex flex-col h-full">
                   {/* Image Section */}
                   <div className="relative h-48 overflow-hidden">

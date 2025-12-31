@@ -95,7 +95,7 @@ export function HeroSimple() {
     return (
         <section id="home" className="relative min-h-screen w-full overflow-hidden bg-background flex items-center">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-purple-500/[0.05] dark:from-blue-500/[0.03] dark:to-purple-500/[0.03] blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-purple-500/[0.05] dark:from-transparent dark:to-transparent blur-3xl" />
             
             {/* Subtle Grid Pattern for Light Mode */}
             <div className="absolute inset-0 dark:hidden opacity-[0.03] [background-image:radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]" />
@@ -106,7 +106,7 @@ export function HeroSimple() {
                     width={600}
                     height={140}
                     rotate={12}
-                    gradient="from-blue-500/[0.15] dark:from-blue-500/[0.12]"
+                    gradient="from-blue-500/[0.15] dark:from-blue-500/[0.08]"
                     className="right-[-10%] top-[10%]"
                 />
                 <ElegantShape
@@ -114,7 +114,7 @@ export function HeroSimple() {
                     width={500}
                     height={120}
                     rotate={-15}
-                    gradient="from-purple-500/[0.15] dark:from-purple-500/[0.12]"
+                    gradient="from-purple-500/[0.15] dark:from-purple-500/[0.08]"
                     className="right-[5%] top-[60%]"
                 />
                 <ElegantShape
@@ -122,7 +122,7 @@ export function HeroSimple() {
                     width={300}
                     height={80}
                     rotate={-8}
-                    gradient="from-indigo-500/[0.15] dark:from-indigo-500/[0.12]"
+                    gradient="from-indigo-500/[0.15] dark:from-indigo-500/[0.08]"
                     className="right-[20%] top-[30%]"
                 />
             </div>

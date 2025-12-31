@@ -93,7 +93,7 @@ export function AboutSection() {
                   viewport={{ once: true }}
                   custom={index + 3}
                   variants={fadeUpVariants}
-                  className="p-6 rounded-2xl bg-white/50 dark:bg-muted/30 border border-white dark:border-border hover:border-blue-500/20 dark:hover:border-foreground/10 transition-colors group shadow-lg shadow-blue-500/5 dark:shadow-none"
+                  className="p-6 rounded-2xl bg-white/50 dark:bg-white/[0.02] border border-white dark:border-white/[0.05] hover:border-blue-500/20 dark:hover:border-white/[0.1] transition-colors group shadow-lg shadow-blue-500/5 dark:shadow-none"
                 >
                   <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110 shadow-sm", stat.color)} />
                   <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
@@ -149,7 +149,7 @@ export function AboutSection() {
                   viewport={{ once: true }}
                   custom={index + 5}
                   variants={fadeUpVariants}
-                  className="p-6 rounded-2xl bg-white/50 dark:bg-muted/30 border border-white dark:border-border hover:border-blue-500/20 dark:hover:border-foreground/10 transition-colors group shadow-lg shadow-blue-500/5 dark:shadow-none"
+                  className="p-6 rounded-2xl bg-white/50 dark:bg-white/[0.02] border border-white dark:border-white/[0.05] hover:border-blue-500/20 dark:hover:border-white/[0.1] transition-colors group shadow-lg shadow-blue-500/5 dark:shadow-none"
                 >
                   <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110 shadow-sm", stat.color)} />
                   <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
