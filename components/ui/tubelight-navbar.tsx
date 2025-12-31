@@ -51,8 +51,8 @@ export function NavBar({ items, className }: NavBarProps) {
           className,
         )}
       >
-        <nav className="relative flex items-center gap-2 p-1.5 bg-background/60 dark:bg-white/[0.03] border border-border dark:border-white/[0.08] backdrop-blur-xl rounded-full shadow-2xl">
-          <div className="flex items-center gap-1 sm:gap-1.5">
+        <div className="relative flex items-center gap-3">
+          <nav className="relative flex items-center gap-1 sm:gap-1.5 p-1.5 bg-background/60 dark:bg-white/[0.03] border border-border dark:border-white/[0.08] backdrop-blur-xl rounded-full shadow-2xl">
             {items.map((item) => {
               const Icon = item.icon
               const isActive = activeTab === item.name
@@ -97,21 +97,16 @@ export function NavBar({ items, className }: NavBarProps) {
                 </button>
               )
             })}
-          </div>
+
+            {/* Dynamic Island style accent */}
+            <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+          </nav>
           
-          <div className="w-px h-5 bg-border dark:bg-white/[0.1] shrink-0" />
-          
+          {/* Theme Toggle Button - Positioned at extreme right */}
           <div className="flex-shrink-0">
             <ModeToggle />
           </div>
-
-          {/* Dynamic Island style accent */}
-          <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-        </nav>
-
-          {/* Dynamic Island style accent */}
-          <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-        </nav>
+        </div>
       </div>
     </>
   )
