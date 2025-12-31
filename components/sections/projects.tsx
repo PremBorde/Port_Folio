@@ -118,17 +118,17 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20 relative bg-[#030303]">
+    <section id="projects" className="py-20 relative bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col items-center text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted border border-border mb-6"
           >
             <Code2 className="h-3 w-3 text-blue-400" />
-            <span className="text-sm text-white/60 tracking-wide uppercase font-medium">Portfolio</span>
+            <span className="text-sm text-muted-foreground tracking-wide uppercase font-medium">Portfolio</span>
           </motion.div>
           
           <motion.h2
@@ -138,7 +138,7 @@ export function ProjectsSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold mb-6 tracking-tight"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60">
               Featured 
             </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 ml-3">
@@ -151,7 +151,7 @@ export function ProjectsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-white/40 max-w-2xl font-light leading-relaxed"
+            className="text-lg text-muted-foreground max-w-2xl font-light leading-relaxed"
           >
             A curated selection of work exploring Software Engineering, AI/ML, and interactive digital experiences.
           </motion.p>
@@ -168,7 +168,7 @@ export function ProjectsSection() {
               variants={fadeUpVariants}
               className="group relative h-full"
             >
-              <div className="relative h-full overflow-hidden rounded-3xl bg-white/[0.02] border border-white/[0.05] group-hover:border-white/[0.1] transition-all duration-500">
+              <div className="relative h-full overflow-hidden rounded-3xl bg-muted/30 border border-border group-hover:border-foreground/10 transition-all duration-500">
                 <div className="flex flex-col h-full">
                   {/* Image Section */}
                   <div className="relative h-48 overflow-hidden">
@@ -177,7 +177,7 @@ export function ProjectsSection() {
                       alt={project.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                     
                     {project.featured && (
                       <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500 text-white text-[9px] font-bold uppercase tracking-wider shadow-lg">
@@ -191,11 +191,11 @@ export function ProjectsSection() {
                   <div className="p-6 flex flex-col flex-1 justify-between">
                     <div>
                       <div className="mb-3">
-                        <h3 className="text-lg font-bold text-white mb-0.5 tracking-tight">{project.title}</h3>
+                        <h3 className="text-lg font-bold text-foreground mb-0.5 tracking-tight">{project.title}</h3>
                         <p className="text-[11px] text-blue-400/80 font-medium tracking-wide uppercase">{project.subtitle}</p>
                       </div>
                       
-                      <p className="text-white/40 text-[13px] font-light leading-relaxed mb-4 line-clamp-3">
+                      <p className="text-muted-foreground text-[13px] font-light leading-relaxed mb-4 line-clamp-3">
                         {project.description}
                       </p>
 
@@ -203,23 +203,23 @@ export function ProjectsSection() {
                         {project.technologies.slice(0, 4).map((tech, techIndex) => (
                           <span 
                             key={techIndex}
-                            className="px-2 py-0.5 rounded-lg bg-white/[0.03] border border-white/[0.05] text-white/40 text-[9px] font-medium tracking-wide"
+                            className="px-2 py-0.5 rounded-lg bg-muted border border-border text-muted-foreground text-[9px] font-medium tracking-wide"
                           >
                             {tech}
                           </span>
                         ))}
                         {project.technologies.length > 4 && (
-                          <span className="text-white/20 text-[9px] font-medium self-center">+{project.technologies.length - 4} more</span>
+                          <span className="text-muted-foreground/50 text-[9px] font-medium self-center">+{project.technologies.length - 4} more</span>
                         )}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-5 pt-4 border-t border-white/[0.05]">
+                    <div className="flex items-center gap-5 pt-4 border-t border-border">
                       <a 
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-white/40 hover:text-white transition-colors group/link"
+                        className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors group/link"
                       >
                         <Github className="w-3.5 h-3.5 transition-transform group-hover/link:-translate-y-0.5" />
                         <span className="text-[10px] font-bold uppercase tracking-widest">Code</span>
@@ -228,7 +228,7 @@ export function ProjectsSection() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-white/40 hover:text-white transition-colors group/link"
+                        className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors group/link"
                       >
                         <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover/link:-translate-y-0.5" />
                         <span className="text-[10px] font-bold uppercase tracking-widest">Demo</span>

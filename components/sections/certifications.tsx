@@ -86,17 +86,17 @@ export function CertificationsSection() {
   };
 
   return (
-    <section id="certifications" className="py-20 relative bg-[#030303]">
+    <section id="certifications" className="py-20 relative bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col items-center text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted border border-border mb-6"
           >
             <ShieldCheck className="h-3 w-3 text-blue-400" />
-            <span className="text-sm text-white/60 tracking-wide uppercase font-medium">Achievements</span>
+            <span className="text-sm text-muted-foreground tracking-wide uppercase font-medium">Achievements</span>
           </motion.div>
           
           <motion.h2
@@ -106,7 +106,7 @@ export function CertificationsSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold mb-6 tracking-tight"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60">
               Professional 
             </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 ml-3">
@@ -119,7 +119,7 @@ export function CertificationsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-white/40 max-w-2xl font-light leading-relaxed"
+            className="text-lg text-muted-foreground max-w-2xl font-light leading-relaxed"
           >
             Continuous learning and validation of expertise in AI, Cloud, and Software Engineering.
           </motion.p>
@@ -136,7 +136,7 @@ export function CertificationsSection() {
               variants={fadeUpVariants}
               className="group relative"
             >
-              <div className="h-full bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-300">
+              <div className="h-full bg-muted/30 border border-border rounded-3xl p-8 hover:bg-muted/50 hover:border-foreground/10 transition-all duration-300">
                 <div className="flex items-start justify-between mb-8">
                   <div className={cn(
                     "p-4 rounded-2xl bg-gradient-to-br transition-transform group-hover:scale-110 duration-300",
@@ -154,22 +154,22 @@ export function CertificationsSection() {
                 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl font-medium text-white mb-1 tracking-tight group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-medium text-foreground mb-1 tracking-tight group-hover:text-blue-400 transition-colors">
                       {cert.title}
                     </h3>
-                    <p className="text-sm text-white/40 font-medium">
+                    <p className="text-sm text-muted-foreground font-medium">
                       {cert.issuer} • {cert.year}
                     </p>
                   </div>
                   
-                  <p className="text-sm text-white/40 font-light leading-relaxed">
+                  <p className="text-sm text-muted-foreground/70 font-light leading-relaxed">
                     {cert.description}
                   </p>
                   
                   <div className="pt-4 flex items-center justify-between">
                     <a 
                       href="#"
-                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 hover:text-white transition-all group/link"
+                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/40 hover:text-foreground transition-all group/link"
                     >
                       Verify
                       <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />

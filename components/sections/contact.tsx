@@ -40,17 +40,17 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 relative bg-[#030303]">
+    <section id="contact" className="py-20 relative bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col items-center text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted border border-border mb-6"
           >
             <MessageSquare className="h-3 w-3 text-blue-400" />
-            <span className="text-sm text-white/60 tracking-wide uppercase font-medium">Contact</span>
+            <span className="text-sm text-muted-foreground tracking-wide uppercase font-medium">Contact</span>
           </motion.div>
           
           <motion.h2
@@ -60,7 +60,7 @@ export function ContactSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold mb-6 tracking-tight"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60">
               Let's build 
             </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 ml-3">
@@ -73,7 +73,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-white/40 max-w-2xl font-light leading-relaxed"
+            className="text-lg text-muted-foreground max-w-2xl font-light leading-relaxed"
           >
             Have a project in mind or just want to say hello? Feel free to reach out anytime.
           </motion.p>
@@ -88,9 +88,9 @@ export function ContactSection() {
               viewport={{ once: true }}
               custom={0}
               variants={fadeUpVariants}
-              className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] relative overflow-hidden group"
+              className="p-8 rounded-3xl bg-muted/30 border border-border relative overflow-hidden group shadow-xl"
             >
-              <h3 className="text-xl font-medium text-white mb-6 tracking-tight">Connect with me</h3>
+              <h3 className="text-xl font-medium text-foreground mb-6 tracking-tight">Connect with me</h3>
               
               <div className="space-y-6">
                 <a href="mailto:prembordesn4@gmail.com" className="flex items-center gap-4 group/item">
@@ -98,8 +98,8 @@ export function ContactSection() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold">Email</p>
-                    <p className="text-white/60 group-hover/item:text-white transition-colors">prembordesn4@gmail.com</p>
+                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground/30 font-bold">Email</p>
+                    <p className="text-muted-foreground group-hover/item:text-foreground transition-colors">prembordesn4@gmail.com</p>
                   </div>
                 </a>
 
@@ -108,8 +108,8 @@ export function ContactSection() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold">Phone</p>
-                    <p className="text-white/60 group-hover/item:text-white transition-colors">+91-9653309640</p>
+                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground/30 font-bold">Phone</p>
+                    <p className="text-muted-foreground group-hover/item:text-foreground transition-colors">+91-9653309640</p>
                   </div>
                 </a>
 
@@ -118,24 +118,24 @@ export function ContactSection() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold">Location</p>
-                    <p className="text-white/60 transition-colors">Pune, Maharashtra</p>
+                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground/30 font-bold">Location</p>
+                    <p className="text-muted-foreground transition-colors">Pune, Maharashtra</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-12 pt-8 border-t border-white/[0.05]">
-                <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold mb-4">Connect</p>
+              <div className="mt-12 pt-8 border-t border-border">
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground/30 font-bold mb-4">Connect</p>
                 <div className="flex flex-wrap gap-3">
-                  <a href="https://github.com/PremBorde" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] text-white/40 hover:text-white hover:bg-white/[0.08] transition-all group/link">
+                  <a href="https://github.com/PremBorde" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all group/link">
                     <Github className="w-4 h-4" />
                     <span className="text-xs font-medium">GitHub</span>
                   </a>
-                  <a href="https://linkedin.com/in/prem-borde-115a92281" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] text-white/40 hover:text-white hover:bg-white/[0.08] transition-all group/link">
+                  <a href="https://linkedin.com/in/prem-borde-115a92281" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all group/link">
                     <Linkedin className="w-4 h-4" />
                     <span className="text-xs font-medium">LinkedIn</span>
                   </a>
-                  <a href="https://magical-rugelach-ad9f1b.netlify.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] text-white/40 hover:text-white hover:bg-white/[0.08] transition-all group/link">
+                  <a href="https://magical-rugelach-ad9f1b.netlify.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all group/link">
                     <ExternalLink className="w-4 h-4" />
                     <span className="text-xs font-medium">Portfolio</span>
                   </a>
@@ -154,45 +154,45 @@ export function ContactSection() {
               viewport={{ once: true }}
               custom={1}
               variants={fadeUpVariants}
-              className="p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm"
+              className="p-8 sm:p-12 rounded-3xl bg-muted/20 border border-border backdrop-blur-sm shadow-xl"
             >
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid sm:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-white/40 font-bold ml-1">Your Name</label>
+                    <label className="text-[10px] uppercase tracking-widest text-muted-foreground/50 font-bold ml-1">Your Name</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500/50 transition-all"
+                      className="w-full bg-background border border-border rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all shadow-inner"
                       placeholder="John Doe"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-white/40 font-bold ml-1">Email Address</label>
+                    <label className="text-[10px] uppercase tracking-widest text-muted-foreground/50 font-bold ml-1">Email Address</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500/50 transition-all"
+                      className="w-full bg-background border border-border rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all shadow-inner"
                       placeholder="john@example.com"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest text-white/40 font-bold ml-1">Your Message</label>
+                  <label className="text-[10px] uppercase tracking-widest text-muted-foreground/50 font-bold ml-1">Your Message</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500/50 transition-all resize-none"
+                    className="w-full bg-background border border-border rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all resize-none shadow-inner"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -200,7 +200,7 @@ export function ContactSection() {
                 <LiquidButton
                   type="submit"
                   size="lg"
-                  className="w-full h-16 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 group"
+                  className="w-full h-16 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 group shadow-lg"
                 >
                   <span>Send Message</span>
                   <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

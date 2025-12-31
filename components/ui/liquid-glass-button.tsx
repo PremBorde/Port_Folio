@@ -112,8 +112,8 @@ function LiquidButton({
         )}
         {...props}
       >
-        <div className="absolute top-0 left-0 z-0 h-full w-full rounded-full shadow-lg shadow-white/10" />
-        <div className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-md bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm" />
+        <div className="absolute top-0 left-0 z-0 h-full w-full rounded-full shadow-lg shadow-foreground/5" />
+        <div className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-md bg-gradient-to-br from-foreground/10 to-transparent backdrop-blur-sm" />
 
         <div className="pointer-events-none z-10 ">
           {children}

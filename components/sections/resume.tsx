@@ -53,17 +53,17 @@ export function ResumeSection() {
   };
 
   return (
-    <section id="resume" className="py-20 relative bg-[#030303]">
+    <section id="resume" className="py-20 relative bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col items-center text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted border border-border mb-6"
           >
             <FileText className="h-3 w-3 text-blue-400" />
-            <span className="text-sm text-white/60 tracking-wide uppercase font-medium">Curriculum Vitae</span>
+            <span className="text-sm text-muted-foreground tracking-wide uppercase font-medium">Curriculum Vitae</span>
           </motion.div>
           
           <motion.h2
@@ -73,7 +73,7 @@ export function ResumeSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold mb-6 tracking-tight"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60">
               My 
             </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 ml-3">
@@ -86,7 +86,7 @@ export function ResumeSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-white/40 max-w-2xl font-light leading-relaxed"
+            className="text-lg text-muted-foreground max-w-2xl font-light leading-relaxed"
           >
             A detailed overview of my professional journey, technical expertise, and academic background.
           </motion.p>
@@ -100,26 +100,26 @@ export function ResumeSection() {
           variants={fadeUpVariants}
           className="max-w-4xl mx-auto relative group"
         >
-          <div className="relative z-10 p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl transition-all duration-300 group-hover:bg-white/[0.04] group-hover:border-white/[0.1]">
+          <div className="relative z-10 p-8 sm:p-12 rounded-3xl bg-muted/30 border border-border backdrop-blur-xl transition-all duration-300 hover:bg-muted/50 hover:border-foreground/10 shadow-2xl">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
               <div className="flex items-center gap-6">
                 <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 text-blue-400 group-hover:scale-110 transition-transform duration-500">
                   <FileText className="w-10 h-10" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-white mb-1 tracking-tight">Prem Borde</h3>
-                  <p className="text-white/40 font-medium tracking-wide">Software Engineer & AI Enthusiast</p>
+                  <h3 className="text-3xl font-bold text-foreground mb-1 tracking-tight">Prem Borde</h3>
+                  <p className="text-muted-foreground font-medium tracking-wide">Software Engineer & AI Enthusiast</p>
                 </div>
               </div>
               <div className="text-left md:text-right">
-                <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold mb-1">Last Updated</p>
-                <p className="text-white/60 font-medium">October 2024</p>
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground/30 font-bold mb-1">Last Updated</p>
+                <p className="text-muted-foreground font-medium">October 2024</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-12">
               <div className="space-y-6">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-white/20 ml-1">Key Highlights</h4>
+                <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/30 ml-1">Key Highlights</h4>
                 <div className="space-y-4">
                   {[
                     "CS Undergrad at PCET NMIET",
@@ -131,19 +131,19 @@ export function ResumeSection() {
                       <div className="w-5 h-5 rounded-full bg-blue-500/10 flex items-center justify-center">
                         <CheckCircle2 className="w-3 h-3 text-blue-400" />
                       </div>
-                      <span className="text-white/60 font-light text-sm">{item}</span>
+                      <span className="text-muted-foreground font-light text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
               
               <div className="space-y-6">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-white/20 ml-1">Primary Stack</h4>
+                <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/30 ml-1">Primary Stack</h4>
                 <div className="flex flex-wrap gap-2">
                   {['React.js', 'Next.js', 'Python', 'FastAPI', 'AWS', 'AI/ML', 'OpenCV'].map((skill, index) => (
                     <span 
                       key={index}
-                      className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/[0.05] text-white/40 text-xs font-medium hover:text-white hover:bg-white/[0.08] transition-all cursor-default"
+                      className="px-3 py-1.5 rounded-xl bg-muted border border-border text-muted-foreground text-xs font-medium hover:text-foreground hover:bg-muted/80 transition-all cursor-default"
                     >
                       {skill}
                     </span>
@@ -152,7 +152,7 @@ export function ResumeSection() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-white/[0.05]">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border">
               <LiquidButton
                 onClick={handleDownloadResume}
                 className="flex-1 h-14 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 group"
@@ -164,7 +164,7 @@ export function ResumeSection() {
                 href="/PremBorde-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 h-14 rounded-2xl border border-white/[0.05] text-white/40 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-white/[0.03] hover:text-white hover:border-white/[0.1] transition-all group"
+                className="flex-1 h-14 rounded-2xl border border-border text-muted-foreground font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-muted hover:text-foreground transition-all group"
               >
                 <span>View Online</span>
                 <ExternalLink className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

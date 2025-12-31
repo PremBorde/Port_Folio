@@ -93,7 +93,7 @@ export function HeroSimple() {
     }
 
     return (
-        <section id="home" className="relative min-h-screen w-full overflow-hidden bg-[#030303] flex items-center">
+        <section id="home" className="relative min-h-screen w-full overflow-hidden bg-background flex items-center">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-purple-500/[0.03] blur-3xl" />
             
@@ -135,9 +135,9 @@ export function HeroSimple() {
                             animate="visible"
                             className="mb-8"
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted border border-border mb-8">
                                 <Sparkles className="h-3 w-3 text-blue-400" />
-                                <span className="text-sm text-white/60 tracking-wide uppercase font-medium">
+                                <span className="text-sm text-muted-foreground tracking-wide uppercase font-medium">
                                     Applied AI & LLM Systems
                                 </span>
                             </div>
@@ -150,7 +150,7 @@ export function HeroSimple() {
                             animate="visible"
                         >
                             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-8 tracking-tight leading-[1.1]">
-                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60">
                                     Prem Borde
                                 </span>
                                 <br />
@@ -166,10 +166,10 @@ export function HeroSimple() {
                             initial="hidden"
                             animate="visible"
                         >
-                            <p className="text-lg md:text-xl text-white/40 mb-10 leading-relaxed font-light tracking-wide max-w-xl">
-                                Building <span className="text-white/80">applied AI systems</span> that solve real-world problems. 
-                                Focused on <span className="text-white/80">LLM-powered applications, RAG, semantic search</span>, and 
-                                <span className="text-white/80"> AI automation</span>—with an emphasis on reliability and system design.
+                            <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed font-light tracking-wide max-w-xl">
+                                Building <span className="text-foreground font-normal">applied AI systems</span> that solve real-world problems. 
+                                Focused on <span className="text-foreground font-normal">LLM-powered applications, RAG, semantic search</span>, and 
+                                <span className="text-foreground font-normal"> AI automation</span>—with an emphasis on reliability and system design.
                             </p>
                         </motion.div>
 
@@ -203,13 +203,13 @@ export function HeroSimple() {
                             animate="visible"
                             className="mt-12 flex items-center gap-6"
                         >
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                                 <Github size={20} />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="mailto:contact@example.com" className="text-white/30 hover:text-white transition-colors">
+                            <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-foreground transition-colors">
                                 <Mail size={20} />
                             </a>
                         </motion.div>
@@ -225,7 +225,7 @@ export function HeroSimple() {
                         >
                             <div className="relative w-full h-full">
                                 {/* Abstract Code Card */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] aspect-square rounded-3xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/[0.1] backdrop-blur-xl p-8 shadow-2xl">
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] aspect-square rounded-3xl bg-gradient-to-br from-foreground/[0.05] to-transparent border border-border backdrop-blur-xl p-8 shadow-2xl">
                                     <div className="flex gap-1.5 mb-6">
                                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
                                         <div className="w-2.5 h-2.5 rounded-full bg-amber-500/50" />
@@ -236,8 +236,8 @@ export function HeroSimple() {
                                         <div className="h-2 w-1/2 bg-purple-400/20 rounded" />
                                         <div className="h-2 w-5/6 bg-indigo-400/20 rounded" />
                                         <div className="h-2 w-2/3 bg-blue-400/20 rounded" />
-                                        <div className="h-2 w-3/4 bg-white/10 rounded" />
-                                        <div className="h-2 w-1/2 bg-white/10 rounded" />
+                                        <div className="h-2 w-3/4 bg-foreground/10 rounded" />
+                                        <div className="h-2 w-1/2 bg-foreground/10 rounded" />
                                     </div>
                                     
                                     <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl" />
@@ -248,7 +248,7 @@ export function HeroSimple() {
                                 <motion.div
                                     animate={{ y: [0, -20, 0] }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute top-[20%] right-[10%] p-4 rounded-2xl bg-white/[0.05] border border-white/[0.1] backdrop-blur-md"
+                                    className="absolute top-[20%] right-[10%] p-4 rounded-2xl bg-background/50 border border-border backdrop-blur-md shadow-lg"
                                 >
                                     <Terminal className="text-blue-400" size={32} />
                                 </motion.div>
@@ -257,7 +257,7 @@ export function HeroSimple() {
                                 <motion.div
                                     animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute bottom-[20%] left-[10%] p-4 rounded-2xl bg-white/[0.05] border border-white/[0.1] backdrop-blur-md"
+                                    className="absolute bottom-[20%] left-[10%] p-4 rounded-2xl bg-background/50 border border-border backdrop-blur-md shadow-lg"
                                 >
                                     <Sparkles className="text-purple-400" size={32} />
                                 </motion.div>
@@ -268,16 +268,16 @@ export function HeroSimple() {
             </div>
 
             {/* Bottom Gradient Fade */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#030303] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
 
             {/* Scroll indicator */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-medium">Scroll</span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">Scroll</span>
                 <motion.button 
                     onClick={scrollToNext}
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="text-white/20 hover:text-white transition-colors duration-300"
+                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
                 >
                     <ArrowDown size={20} />
                 </motion.button>
