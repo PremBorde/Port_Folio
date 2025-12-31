@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
-import { Card, CardContent } from "@/components/ui/card"
-import { LiquidButton, MetalButton } from "@/components/ui/liquid-glass-button"
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageSquare, ExternalLink } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { LiquidButton } from "@/components/ui/liquid-glass-button"
+import { cn } from "@/lib/utils"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,9 +15,7 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
     console.log('Form submitted:', formData)
-    // Reset form
     setFormData({ name: '', email: '', message: '' })
   }
 
@@ -27,142 +26,173 @@ export function ContactSection() {
     })
   }
 
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: i * 0.1,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
+
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Let's Work Together
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
-          </p>
+    <section id="contact" className="py-20 relative bg-[#030303]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col items-center text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6"
+          >
+            <MessageSquare className="h-3 w-3 text-blue-400" />
+            <span className="text-sm text-white/60 tracking-wide uppercase font-medium">Contact</span>
+          </motion.div>
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold mb-6 tracking-tight"
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+              Let's build 
+            </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 ml-3">
+              together.
+            </span>
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-white/40 max-w-2xl font-light leading-relaxed"
+          >
+            Have a project in mind or just want to say hello? Feel free to reach out anytime.
+          </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6">Get In Touch</h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                I'm always interested in new opportunities and exciting projects. 
-                Whether you have a question, want to collaborate, or just want to say hi, 
-                feel free to reach out!
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 group cursor-pointer">
-                <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg group-hover:scale-110 transition-transform duration-200">
-                  <Mail className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-200">Email</p>
-                  <p className="text-white font-medium group-hover:text-blue-300 transition-colors duration-200">prembordesn4@gmail.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 group cursor-pointer">
-                <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg group-hover:scale-110 transition-transform duration-200">
-                  <Phone className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-200">Phone</p>
-                  <p className="text-white font-medium group-hover:text-green-300 transition-colors duration-200">+91-9653309640</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 group cursor-pointer">
-                <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg group-hover:scale-110 transition-transform duration-200">
-                  <MapPin className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-200">Location</p>
-                  <p className="text-white font-medium group-hover:text-purple-300 transition-colors duration-200">Pune, Maharashtra</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="pt-8">
-              <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://github.com/PremBorde" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-200 hover:scale-110 hover:shadow-lg"
-                >
-                  <Github className="w-5 h-5 text-gray-400 hover:text-white transition-colors duration-200" />
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
+          {/* Contact Info */}
+          <div className="lg:col-span-2 space-y-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+              variants={fadeUpVariants}
+              className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] relative overflow-hidden group"
+            >
+              <h3 className="text-xl font-medium text-white mb-6 tracking-tight">Connect with me</h3>
+              
+              <div className="space-y-6">
+                <a href="mailto:prembordesn4@gmail.com" className="flex items-center gap-4 group/item">
+                  <div className="p-3 rounded-2xl bg-blue-500/10 text-blue-400 group-hover/item:scale-110 transition-transform">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold">Email</p>
+                    <p className="text-white/60 group-hover/item:text-white transition-colors">prembordesn4@gmail.com</p>
+                  </div>
                 </a>
-                <a 
-                  href="#" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-200 hover:scale-110 hover:shadow-lg"
-                >
-                  <Linkedin className="w-5 h-5 text-gray-400 hover:text-white transition-colors duration-200" />
+
+                <a href="tel:+919653309640" className="flex items-center gap-4 group/item">
+                  <div className="p-3 rounded-2xl bg-purple-500/10 text-purple-400 group-hover/item:scale-110 transition-transform">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold">Phone</p>
+                    <p className="text-white/60 group-hover/item:text-white transition-colors">+91-9653309640</p>
+                  </div>
                 </a>
-                <a 
-                  href="#" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-200 hover:scale-110 hover:shadow-lg"
-                >
-                  <Twitter className="w-5 h-5 text-gray-400 hover:text-white transition-colors duration-200" />
-                </a>
+
+                <div className="flex items-center gap-4 group/item">
+                  <div className="p-3 rounded-2xl bg-emerald-500/10 text-emerald-400 group-hover/item:scale-110 transition-transform">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold">Location</p>
+                    <p className="text-white/60 transition-colors">Pune, Maharashtra</p>
+                  </div>
+                </div>
               </div>
-            </div>
+
+              <div className="mt-12 pt-8 border-t border-white/[0.05]">
+                <p className="text-[10px] uppercase tracking-widest text-white/20 font-bold mb-4">Connect</p>
+                <div className="flex flex-wrap gap-3">
+                  <a href="https://github.com/PremBorde" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] text-white/40 hover:text-white hover:bg-white/[0.08] transition-all group/link">
+                    <Github className="w-4 h-4" />
+                    <span className="text-xs font-medium">GitHub</span>
+                  </a>
+                  <a href="https://linkedin.com/in/prem-borde-115a92281" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] text-white/40 hover:text-white hover:bg-white/[0.08] transition-all group/link">
+                    <Linkedin className="w-4 h-4" />
+                    <span className="text-xs font-medium">LinkedIn</span>
+                  </a>
+                  <a href="https://magical-rugelach-ad9f1b.netlify.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] text-white/40 hover:text-white hover:bg-white/[0.08] transition-all group/link">
+                    <ExternalLink className="w-4 h-4" />
+                    <span className="text-xs font-medium">Portfolio</span>
+                  </a>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-colors" />
+            </motion.div>
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 hover:border-gray-600 transition-all duration-200"
-                    placeholder="Your Name"
-                  />
+          <div className="lg:col-span-3">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={1}
+              variants={fadeUpVariants}
+              className="p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm"
+            >
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid sm:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-widest text-white/40 font-bold ml-1">Your Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500/50 transition-all"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase tracking-widest text-white/40 font-bold ml-1">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500/50 transition-all"
+                      placeholder="john@example.com"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 hover:border-gray-600 transition-all duration-200"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message
-                  </label>
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest text-white/40 font-bold ml-1">Your Message</label>
                   <textarea
-                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 hover:border-gray-600 transition-all duration-200 resize-none"
+                    rows={6}
+                    className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500/50 transition-all resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -170,14 +200,14 @@ export function ContactSection() {
                 <LiquidButton
                   type="submit"
                   size="lg"
-                  className="w-full text-white font-semibold flex items-center justify-center space-x-2"
+                  className="w-full h-16 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 group"
                 >
-                  <Send className="w-4 h-4" />
                   <span>Send Message</span>
+                  <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </LiquidButton>
               </form>
-            </CardContent>
-          </Card>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

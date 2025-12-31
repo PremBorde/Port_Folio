@@ -1,76 +1,193 @@
 'use client'
 
-import { Code, Brain, Database, Smartphone } from 'lucide-react'
+import { Code, Brain, Database, Sparkles, GraduationCap, Laptop } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { cn } from "@/lib/utils"
 
-const skills = [
-  { name: 'Software Engineering', icon: Code, level: 90 },
-  { name: 'AI/ML Technologies', icon: Brain, level: 85 },
-  { name: 'Web Development', icon: Database, level: 88 },
-  { name: 'Cloud Platforms', icon: Database, level: 82 },
+const stats = [
+  { label: 'Major Projects', value: '3+', icon: Laptop, color: 'text-blue-400' },
+  { label: 'CGPA (TE)', value: '8.3', icon: GraduationCap, color: 'text-purple-400' },
+  { label: 'Experience', value: 'Intern', icon: Code, color: 'text-emerald-400' },
+  { label: 'Learning', value: 'Always', icon: Brain, color: 'text-rose-400' },
 ]
 
 export function AboutSection() {
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
+
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-black to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About Me
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Computer Science student passionate about Software Engineering, AI/ML, and building innovative web applications
-          </p>
-        </div>
+    <section id="about" className="py-20 relative overflow-hidden bg-[#030303]">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 rounded-full blur-[120px]" />
+      </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
-          <div className="space-y-6">
-            <div className="prose prose-lg prose-invert max-w-none">
-              <p className="text-gray-300 leading-relaxed">
-                I'm a passionate Computer Science undergraduate at PCET NMIET, Pune, with hands-on experience in Software Engineering 
-                and AI/ML technologies. Currently working as an AI & Cloud Technologies Intern at Edunet Foundation 
-                in collaboration with AICTE & IBM SkillsBuild.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                With expertise in JavaScript, TypeScript, Python, React.js, and cloud platforms like AWS, Azure, and GCP, 
-                I've developed web applications ranging from AI-powered platforms to intelligent document analysis systems. 
-                I'm passionate about building scalable web applications and exploring the intersection of AI/ML with modern development.
-              </p>
-            </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          
+          {/* Left Column - Content */}
+          <div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+              variants={fadeUpVariants}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8"
+            >
+              <Sparkles className="h-3 w-3 text-blue-400" />
+              <span className="text-sm text-white/60 tracking-wide uppercase font-medium">About Me</span>
+            </motion.div>
 
-            <div className="grid grid-cols-2 gap-6 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">3+</div>
-                <div className="text-gray-400">Major Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">8.3</div>
-                <div className="text-gray-400">CGPA (TE)</div>
-              </div>
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={1}
+              variants={fadeUpVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
+            >
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+                Driven by curiosity,
+              </span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+                Defined by code.
+              </span>
+            </motion.h2>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={2}
+              variants={fadeUpVariants}
+              className="space-y-6 text-lg text-white/40 font-light leading-relaxed mb-8"
+            >
+              <p>
+                Hi, I'm <span className="text-white/80 font-normal">Prem Borde</span>, a Computer Engineering student passionate about building <span className="text-white/80 font-normal">applied AI systems</span> that solve real-world problems. My work focuses on <span className="text-white/80 font-normal">LLM-powered applications, Retrieval-Augmented Generation (RAG), semantic search, and AI automation</span>, with an emphasis on reliability and system design rather than just model usage.
+              </p>
+              <p>
+                I enjoy turning complex AI concepts into practical products—whether it's analyzing large documents, improving job application workflows, or building intelligent tools for learning and productivity. Most of my projects involve <span className="text-white/80 font-normal">FastAPI backends, vector embeddings, and modern AI APIs</span>, and I'm continuously exploring how AI systems behave in real production-like scenarios.
+              </p>
+            </motion.div>
+
+            {/* Stats Grid - Left Side (First 2) */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.slice(0, 2).map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={index + 3}
+                  variants={fadeUpVariants}
+                  className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-colors group"
+                >
+                  <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110", stat.color)} />
+                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                  <div className="text-sm text-white/40 tracking-wide uppercase font-medium">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </div>
 
-          {/* Right side - Skills */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-white mb-6">Skills & Expertise</h3>
-            {skills.map((skill, index) => (
-              <div key={index} className="space-y-2 group cursor-pointer">
-                <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-800 transition-colors duration-200">
-                  <div className="flex items-center space-x-3">
-                    <skill.icon className="w-5 h-5 text-blue-400 group-hover:text-blue-300 transition-colors duration-200" />
-                    <span className="text-gray-300 font-medium group-hover:text-white transition-colors duration-200">{skill.name}</span>
+          {/* Right Column - Experience Card & Philosophy */}
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="relative"
+            >
+              <div className="relative z-10 p-8 rounded-3xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/[0.1] backdrop-blur-xl shadow-2xl">
+                <h3 className="text-2xl font-semibold text-white mb-8 tracking-tight">Current Experience</h3>
+                
+                <div className="space-y-12">
+                  <div className="relative pl-8 border-l border-white/[0.1]">
+                    <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+                    <div className="text-sm text-blue-400 font-medium mb-1">Sep 2025 – Oct 2025</div>
+                    <h4 className="text-lg font-medium text-white mb-1 tracking-tight">AI & Cloud Intern</h4>
+                    <p className="text-white/60 mb-4 font-light italic text-sm">Edunet Foundation (AICTE & IBM)</p>
+                    <p className="text-sm text-white/40 leading-relaxed font-light">
+                      Developed JobFlow - an AI-powered automation agent for job applications. Built production-ready AI tools using FastAPI and LLM APIs, focusing on RAG and automation workflows.
+                    </p>
                   </div>
-                  <span className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-2 group-hover:bg-gray-600 transition-colors duration-200">
-                  <div 
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out group-hover:from-blue-400 group-hover:to-purple-500"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
+
+                  <div className="relative pl-8 border-l border-white/[0.1]">
+                    <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+                    <div className="text-sm text-purple-400 font-medium mb-1">Education</div>
+                    <h4 className="text-lg font-medium text-white mb-1 tracking-tight">B.E in Computer Science</h4>
+                    <p className="text-white/60 mb-4 font-light italic text-sm">PCET NMIET, Pune</p>
+                    <p className="text-sm text-white/40 leading-relaxed font-light">
+                      Specializing in AI/ML and Software Engineering. Maintaining a strong 8.3 CGPA.
+                    </p>
+                  </div>
                 </div>
               </div>
-            ))}
+            </motion.div>
+
+            {/* Stats Grid - Right Side (Last 2) */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.slice(2, 4).map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={index + 5}
+                  variants={fadeUpVariants}
+                  className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-colors group"
+                >
+                  <stat.icon className={cn("w-6 h-6 mb-4 transition-transform group-hover:scale-110", stat.color)} />
+                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                  <div className="text-sm text-white/40 tracking-wide uppercase font-medium">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Philosophy & Roadmap Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-3">Core Philosophy</h4>
+                <p className="text-xs text-white/40 leading-relaxed font-light italic">
+                  "I believe in building AI systems that are reliable, explainable, and solve actual human problems."
+                </p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Next Milestone</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-[10px] text-white/40">
+                    <div className="w-1 h-1 rounded-full bg-purple-500" />
+                    Deepening LLMOps
+                  </li>
+                  <li className="flex items-center gap-2 text-[10px] text-white/40">
+                    <div className="w-1 h-1 rounded-full bg-purple-500" />
+                    Vector DB Orchestration
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
           </div>
+
         </div>
       </div>
     </section>

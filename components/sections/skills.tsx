@@ -6,115 +6,177 @@ import {
   Cloud,
   Brain,
   Server,
-  Globe
+  Globe,
+  Layers,
+  Sparkles
 } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { cn } from "@/lib/utils"
 
 const skillCategories = [
   {
     title: "Programming Languages",
     icon: Code,
-    skills: ["JavaScript", "TypeScript", "Python", "SQL"],
-    color: "from-blue-500 to-cyan-500"
+    skills: ["Python", "JavaScript", "TypeScript"],
+    color: "from-blue-500/20 to-cyan-500/20",
+    iconColor: "text-blue-400"
   },
   {
     title: "Frontend Development", 
     icon: Globe,
-    skills: ["React.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
-    color: "from-green-500 to-emerald-500"
+    skills: ["React.js", "Next.js"],
+    color: "from-emerald-500/20 to-teal-500/20",
+    iconColor: "text-emerald-400"
   },
   {
-    title: "Backend Development",
+    title: "Backend & APIs",
     icon: Server,
-    skills: ["Node.js", "Express.js", "FastAPI", "Python", "OpenCV", "MediaPipe"],
-    color: "from-purple-500 to-pink-500"
+    skills: ["FastAPI", "Node.js", "OpenCV", "MediaPipe"],
+    color: "from-purple-500/20 to-pink-500/20",
+    iconColor: "text-purple-400"
   },
   {
-    title: "AI/ML Technologies",
+    title: "AI & ML Technologies",
     icon: Brain,
-    skills: ["TensorFlow", "PyTorch", "Scikit-learn", "OpenCV", "MediaPipe", "FAISS"],
-    color: "from-orange-500 to-red-500"
+    skills: ["FAISS", "Gemini API", "Sentence Transformers"],
+    color: "from-orange-500/20 to-amber-500/20",
+    iconColor: "text-orange-400"
   },
   {
     title: "Cloud Platforms",
     icon: Cloud,
-    skills: ["AWS (Lex, EC2, S3)", "Microsoft Azure", "Google Cloud"],
-    color: "from-pink-500 to-rose-500"
+    skills: ["AWS"],
+    color: "from-pink-500/20 to-rose-500/20",
+    iconColor: "text-rose-400"
   },
   {
     title: "Databases & Tools",
     icon: Database,
-    skills: ["MongoDB", "MySQL", "Git", "GitHub", "VS Code"],
-    color: "from-yellow-500 to-orange-500"
+    skills: ["MongoDB", "Git", "GitHub"],
+    color: "from-yellow-500/20 to-orange-500/20",
+    iconColor: "text-yellow-400"
   }
 ]
 
 export function SkillsSection() {
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: i * 0.1,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
+
   return (
-    <section id="skills" className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Skills & Technologies
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            A comprehensive toolkit for Software Engineering, Web Development, and AI/ML technologies
-          </p>
+    <section id="skills" className="py-20 relative bg-[#030303]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col items-center text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6"
+          >
+            <Layers className="h-3 w-3 text-blue-400" />
+            <span className="text-sm text-white/60 tracking-wide uppercase font-medium">Expertise</span>
+          </motion.div>
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold mb-6 tracking-tight"
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+              Skills & 
+            </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 ml-3">
+              Technologies
+            </span>
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-white/40 max-w-2xl font-light leading-relaxed"
+          >
+            A comprehensive collection of tools and technologies I use to bring complex digital ideas to life.
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="group relative bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-gray-600 transition-all duration-300 hover:transform hover:scale-105"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={index}
+              variants={fadeUpVariants}
+              className="group relative"
             >
-              <div className="flex items-center mb-4">
-                <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} mr-4`}>
-                  <category.icon className="w-6 h-6 text-white" />
+              <div className="h-full bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className={cn(
+                    "p-3 rounded-2xl bg-gradient-to-br transition-transform group-hover:scale-110 duration-300",
+                    category.color
+                  )}>
+                    <category.icon className={cn("w-6 h-6", category.iconColor)} />
+                  </div>
+                  <h3 className="text-xl font-medium text-white ml-4 tracking-tight">
+                    {category.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-semibold text-white">
-                  {category.title}
-                </h3>
-              </div>
-              
-              <div className="space-y-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <div 
-                    key={skillIndex}
-                    className="flex items-center justify-between py-2 px-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-200"
-                  >
-                    <span className="text-gray-300 text-sm font-medium">
+                
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span 
+                      key={skillIndex}
+                      className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/[0.05] text-white/50 text-xs font-medium hover:text-white hover:bg-white/[0.08] hover:border-white/[0.15] transition-all cursor-default"
+                    >
                       {skill}
                     </span>
-                    <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
               
-              {/* Hover effect overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-            </div>
+              {/* Decorative orb */}
+              <div className="absolute -z-10 top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/5 to-purple-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
           ))}
         </div>
 
-        {/* Additional info */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-8 bg-gray-900 rounded-2xl p-8 border border-gray-800">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">15+</div>
-              <div className="text-gray-400">Technologies</div>
-            </div>
-            <div className="w-px h-12 bg-gray-700"></div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">3+</div>
-              <div className="text-gray-400">Major Projects</div>
-            </div>
-            <div className="w-px h-12 bg-gray-700"></div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">Always</div>
-              <div className="text-gray-400">Learning</div>
-            </div>
+        {/* Dynamic counter section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="mt-20 pt-10 border-t border-white/[0.05]"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { label: 'Programming', value: '4+', sub: 'Languages' },
+              { label: 'Experience', value: '2+', sub: 'Years Coding' },
+              { label: 'Projects', value: '10+', sub: 'Completed' },
+              { label: 'Libraries', value: '20+', sub: 'Mastered' },
+            ].map((stat, i) => (
+              <div key={i} className="text-center group">
+                <div className="text-3xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">{stat.value}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-bold">{stat.label}</div>
+                <div className="text-[10px] text-white/10">{stat.sub}</div>
+              </div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

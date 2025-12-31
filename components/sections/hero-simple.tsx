@@ -1,9 +1,75 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
-import { SplineScene } from "@/components/ui/spline"
+import { ArrowDown, Mail, Github, Linkedin, Terminal, Sparkles } from "lucide-react";
 import { LiquidButton, MetalButton } from "@/components/ui/liquid-glass-button"
+import { cn } from "@/lib/utils";
+
+function ElegantShape({
+    className,
+    delay = 0,
+    width = 400,
+    height = 100,
+    rotate = 0,
+    gradient = "from-white/[0.08]",
+}: {
+    className?: string;
+    delay?: number;
+    width?: number;
+    height?: number;
+    rotate?: number;
+    gradient?: string;
+}) {
+    return (
+        <motion.div
+            initial={{
+                opacity: 0,
+                y: -150,
+                rotate: rotate - 15,
+            }}
+            animate={{
+                opacity: 1,
+                y: 0,
+                rotate: rotate,
+            }}
+            transition={{
+                duration: 2.4,
+                delay,
+                ease: [0.23, 0.86, 0.39, 0.96],
+                opacity: { duration: 1.2 },
+            }}
+            className={cn("absolute", className)}
+        >
+            <motion.div
+                animate={{
+                    y: [0, 20, 0],
+                }}
+                transition={{
+                    duration: 12,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                }}
+                style={{
+                    width,
+                    height,
+                }}
+                className="relative"
+            >
+                <div
+                    className={cn(
+                        "absolute inset-0 rounded-full",
+                        "bg-gradient-to-r to-transparent",
+                        gradient,
+                        "backdrop-blur-[2px] border-2 border-white/[0.15]",
+                        "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
+                        "after:absolute after:inset-0 after:rounded-full",
+                        "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
+                    )}
+                />
+            </motion.div>
+        </motion.div>
+    );
+}
 
 export function HeroSimple() {
     const fadeUpVariants = {
@@ -27,26 +93,52 @@ export function HeroSimple() {
     }
 
     return (
-        <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black">
-            {/* Simple gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-pink-900/20" />
+        <section id="home" className="relative min-h-screen w-full overflow-hidden bg-[#030303] flex items-center">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-purple-500/[0.03] blur-3xl" />
             
-            {/* Main Content */}
-            <div className="relative z-10 flex flex-col lg:flex-row min-h-screen">
-                {/* Left Side - Text Content */}
-                <div className="flex-1 flex items-center justify-center p-6 lg:p-8 pt-20 lg:pt-8">
-                    <div className="max-w-2xl w-full">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <ElegantShape
+                    delay={0.3}
+                    width={600}
+                    height={140}
+                    rotate={12}
+                    gradient="from-blue-500/[0.12]"
+                    className="right-[-10%] top-[10%]"
+                />
+                <ElegantShape
+                    delay={0.5}
+                    width={500}
+                    height={120}
+                    rotate={-15}
+                    gradient="from-purple-500/[0.12]"
+                    className="right-[5%] top-[60%]"
+                />
+                <ElegantShape
+                    delay={0.4}
+                    width={300}
+                    height={80}
+                    rotate={-8}
+                    gradient="from-indigo-500/[0.12]"
+                    className="right-[20%] top-[30%]"
+                />
+            </div>
+
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-32 lg:pt-24 pb-20">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left Content */}
+                    <div className="max-w-3xl">
                         <motion.div
                             custom={0}
                             variants={fadeUpVariants}
                             initial="hidden"
                             animate="visible"
-                            className="mb-6"
+                            className="mb-8"
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                                <span className="text-sm text-blue-300 tracking-wide">
-                                    Computer Science Student
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8">
+                                <Sparkles className="h-3 w-3 text-blue-400" />
+                                <span className="text-sm text-white/60 tracking-wide uppercase font-medium">
+                                    Applied AI & LLM Systems
                                 </span>
                             </div>
                         </motion.div>
@@ -57,12 +149,13 @@ export function HeroSimple() {
                             initial="hidden"
                             animate="visible"
                         >
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 tracking-tight leading-tight">
-                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300 block">
+                            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-8 tracking-tight leading-[1.1]">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
                                     Prem Borde
                                 </span>
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 block mt-2">
-                                    Software Engineer & AI/ML Enthusiast
+                                <br />
+                                <span className="text-3xl sm:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 font-medium">
+                                    Building the Future with Code
                                 </span>
                             </h1>
                         </motion.div>
@@ -73,9 +166,10 @@ export function HeroSimple() {
                             initial="hidden"
                             animate="visible"
                         >
-                            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                                Enthusiastic Computer Science undergraduate with hands-on experience in Software Engineering 
-                                and AI/ML technologies. Building scalable web applications and intelligent solutions.
+                            <p className="text-lg md:text-xl text-white/40 mb-10 leading-relaxed font-light tracking-wide max-w-xl">
+                                Building <span className="text-white/80">applied AI systems</span> that solve real-world problems. 
+                                Focused on <span className="text-white/80">LLM-powered applications, RAG, semantic search</span>, and 
+                                <span className="text-white/80"> AI automation</span>—with an emphasis on reliability and system design.
                             </p>
                         </motion.div>
 
@@ -84,43 +178,109 @@ export function HeroSimple() {
                             variants={fadeUpVariants}
                             initial="hidden"
                             animate="visible"
-                            className="flex flex-col sm:flex-row gap-4"
+                            className="flex flex-wrap gap-4"
                         >
                             <LiquidButton 
                                 onClick={scrollToNext}
                                 size="lg"
-                                className="text-white font-semibold"
+                                className="text-white font-semibold min-w-[160px]"
                             >
-                                View My Work
+                                View Projects
                             </LiquidButton>
                             <MetalButton 
                                 variant="primary"
                                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="text-white font-semibold"
+                                className="text-white font-semibold min-w-[160px]"
                             >
                                 Get In Touch
                             </MetalButton>
                         </motion.div>
-                    </div>
-                </div>
 
-                {/* Right Side - 3D Robot Scene */}
-                <div className="flex-1 relative min-h-[600px]">
-                    <SplineScene 
-                        scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                        className="w-full h-full"
-                    />
+                        <motion.div
+                            custom={4}
+                            variants={fadeUpVariants}
+                            initial="hidden"
+                            animate="visible"
+                            className="mt-12 flex items-center gap-6"
+                        >
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">
+                                <Github size={20} />
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">
+                                <Linkedin size={20} />
+                            </a>
+                            <a href="mailto:contact@example.com" className="text-white/30 hover:text-white transition-colors">
+                                <Mail size={20} />
+                            </a>
+                        </motion.div>
+                    </div>
+
+                    {/* Right Visual Element (Decorative) */}
+                    <div className="hidden lg:block relative h-[600px]">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1.5, delay: 0.5 }}
+                            className="absolute inset-0 flex items-center justify-center"
+                        >
+                            <div className="relative w-full h-full">
+                                {/* Abstract Code Card */}
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] aspect-square rounded-3xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/[0.1] backdrop-blur-xl p-8 shadow-2xl">
+                                    <div className="flex gap-1.5 mb-6">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/50" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/50" />
+                                    </div>
+                                    <div className="space-y-4">
+                                        <div className="h-2 w-3/4 bg-blue-400/20 rounded" />
+                                        <div className="h-2 w-1/2 bg-purple-400/20 rounded" />
+                                        <div className="h-2 w-5/6 bg-indigo-400/20 rounded" />
+                                        <div className="h-2 w-2/3 bg-blue-400/20 rounded" />
+                                        <div className="h-2 w-3/4 bg-white/10 rounded" />
+                                        <div className="h-2 w-1/2 bg-white/10 rounded" />
+                                    </div>
+                                    
+                                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl" />
+                                    <div className="absolute -top-6 -left-6 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl" />
+                                </div>
+
+                                {/* Floating Terminal Icon */}
+                                <motion.div
+                                    animate={{ y: [0, -20, 0] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute top-[20%] right-[10%] p-4 rounded-2xl bg-white/[0.05] border border-white/[0.1] backdrop-blur-md"
+                                >
+                                    <Terminal className="text-blue-400" size={32} />
+                                </motion.div>
+
+                                {/* Floating Sparkle */}
+                                <motion.div
+                                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute bottom-[20%] left-[10%] p-4 rounded-2xl bg-white/[0.05] border border-white/[0.1] backdrop-blur-md"
+                                >
+                                    <Sparkles className="text-purple-400" size={32} />
+                                </motion.div>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
 
+            {/* Bottom Gradient Fade */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#030303] to-transparent pointer-events-none" />
+
             {/* Scroll indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <button 
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-medium">Scroll</span>
+                <motion.button 
                     onClick={scrollToNext}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-white/20 hover:text-white transition-colors duration-300"
                 >
-                    <ArrowDown size={24} />
-                </button>
+                    <ArrowDown size={20} />
+                </motion.button>
             </div>
         </section>
     )
